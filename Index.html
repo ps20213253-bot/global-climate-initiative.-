@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Climate Initiative — Understand Global Warming, Take Action</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0d1b17;--deep:#0b3b36;--teal:#0f766e;--leaf:#16a34a;--sand:#f6f4ee;--paper:#fff;--muted:#5b6b66;--line:#dfe7e3}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,sans-serif;color:var(--ink);background:var(--sand);line-height:1.6}
+h1,h2,h3{font-family:Fraunces,serif;line-height:1.15}a{color:var(--teal)}
+.wrap{max-width:1100px;margin:auto;padding:0 20px}
+header{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:14px}
+.brand{display:flex;gap:10px;align-items:center;font-weight:800;color:var(--deep);text-decoration:none}
+.logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--leaf),var(--teal));color:#fff;display:grid;place-items:center;font-weight:800}
+.navlinks{display:flex;gap:16px;flex-wrap:wrap}.navlinks a{text-decoration:none;color:var(--muted);font-weight:600;font-size:14px}
+.btn{display:inline-block;border:0;border-radius:999px;padding:12px 20px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
+.primary{background:var(--deep);color:#fff}.light{background:#fff;color:var(--deep);border:1px solid var(--line)}
+.hero{background:linear-gradient(120deg,#062b28,#0b3b36,#115e59);color:#fff;padding:70px 0}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.eyebrow{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:7px 13px;border-radius:999px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.hero h1{font-size:clamp(36px,5.5vw,62px);margin:20px 0}
+.hero p{color:#d7e7e2;font-size:18px;max-width:600px}
+.hero img{width:100%;height:420px;object-fit:cover;border-radius:22px;border:1px solid rgba(255,255,255,.2)}
+section{padding:65px 0}.alt{background:var(--paper);border-block:1px solid var(--line)}
+h2{font-size:clamp(28px,4vw,42px);margin:0 0 12px}.lead{color:var(--muted);max-width:720px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;box-shadow:0 12px 30px rgba(15,60,55,.06)}
+.big{font-family:Fraunces,serif;font-size:42px;font-weight:700;color:var(--deep)}
+.source{display:inline-block;margin-top:14px;font-weight:700;font-size:14px;text-decoration:none;border-bottom:1px solid rgba(15,118,110,.4)}
+.photos{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+.photos img{width:100%;height:210px;object-fit:cover;border-radius:16px;border:1px solid var(--line)}
+.tool{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 14px 35px rgba(15,60,55,.07)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+label{display:block;font-weight:700;margin:15px 0 6px;font-size:14px}
+select,input{width:100%;padding:12px;border:1.5px solid var(--line);border-radius:12px;font:inherit;background:#fbfcfb}
+.result{margin-top:18px;padding:16px;border-radius:14px;background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;font-weight:600}
+.opt{display:block;width:100%;text-align:left;margin:9px 0;padding:13px 15px;border:1.5px solid var(--line);border-radius:13px;background:#fbfcfb;font:inherit;font-weight:600;cursor:pointer}
+.opt:hover{border-color:var(--teal)}.correct{background:#ecfdf5;border-color:#22c55e}.wrong{background:#fef2f2;border-color:#ef4444}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mbtn{padding:14px;border-radius:13px;border:1.5px solid var(--line);background:#fbfcfb;font:inherit;font-weight:700;cursor:pointer}
+.selected{border-color:#0ea5e9;background:#e0f2fe}.matched{background:#ecfdf5;border-color:#22c55e;color:#065f46}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.flip{height:220px;perspective:900px;cursor:pointer}.inner{position:relative;width:100%;height:100%;transition:.55s;transform-style:preserve-3d}
+.flip.on .inner{transform:rotateY(180deg)}.face{position:absolute;inset:0;border-radius:20px;padding:22px;display:grid;place-content:center;backface-visibility:hidden;border:1px solid var(--line)}
+.front{background:linear-gradient(135deg,#0b3b36,#115e59);color:#fff}.back{background:#fff;transform:rotateY(180deg)}
+.poll button{display:flex;width:100%;text-align:left;gap:10px;margin-bottom:10px;padding:13px 15px;border-radius:13px;border:1.5px solid var(--line);background:#fbfcfb;font:inherit;font-weight:600;cursor:pointer}
+.pledge{background:linear-gradient(135deg,#062b28,#0f766e);color:#fff;border-radius:26px;padding:42px;display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.pledge input,.pledge select{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:#fff}
+.count{font-family:Fraunces,serif;font-size:60px;font-weight:700;line-height:1}
+footer{background:#062b28;color:#cfe0db;padding:55px 0;margin-top:70px}
+footer a{color:#99f6e4}.author{margin-top:32px;padding-top:22px;border-top:1px solid rgba(255,255,255,.16)}
+@media(max-width:850px){.hero-grid,.two,.pledge,.grid3,.cards{grid-template-columns:1fr}.photos{grid-template-columns:1fr 1fr}.navlinks{display:none}.hero img{height:260px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#top"><span class="logo">G</span>Global Climate Initiative</a>
+<nav class="navlinks"><a href="#evidence">Evidence</a><a href="#quiz">Quiz</a><a href="#calculator">Calculator</a><a href="#game">Game</a><a href="#myths">Myths</a><a href="#poll">Poll</a><a href="#pledge">Pledge</a></nav>
+<a class="btn primary" href="#pledge">Take the pledge</a></div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap hero-grid">
+<div><span class="eyebrow">Public-service climate campaign</span>
+<h1>Global warming is a shared challenge—and a solvable one.</h1>
+<p>The Global Climate Initiative helps people understand the science, separate fact from myth, and take one practical climate action this week.</p>
+<p><a class="btn primary" href="#quiz">Start the climate quiz</a> <a class="btn light" href="#calculator">Estimate your impact</a></p></div>
+<div><img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=1200&q=80" alt="Green forest and mountains"></div>
+</div></section>
+
+<section id="evidence"><div class="wrap">
+<h2>The evidence, with sources you can check</h2>
+<p class="lead">Every statistic links to the UN Food and Agriculture Organization (FAO) or the World Resources Institute (WRI). Open the sources, read the context, and question the numbers.</p>
+<div class="grid3">
+<div class="card"><div class="big">~1/3</div><h3>Agrifood emissions</h3><p>FAO estimates agrifood systems account for about one-third of global human-caused greenhouse-gas emissions.</p><a class="source" target="_blank" rel="noopener" href="https://www.fao.org/statistics/highlights-archive/highlights-detail/greenhouse-gas-emissions-from-agrifood-systems.-global--regional-and-country-trends--2001-2023/en">Source: UN FAO</a></div>
+<div class="card"><div class="big">8–10%</div><h3>Food loss and waste</h3><p>WRI estimates food loss and waste contribute 8–10% of annual global greenhouse-gas emissions.</p><a class="source" target="_blank" rel="noopener" href="https://www.wri.org/news/statement-more-30-countries-commit-tackle-methane-organic-waste">Source: WRI</a></div>
+<div class="card"><div class="big">3.1 Gt</div><h3>Tree-cover loss</h3><p>WRI reports that global tree-cover loss in 2024 caused 3.1 gigatonnes of greenhouse-gas emissions.</p><a class="source" target="_blank" rel="noopener" href="https://gfr.wri.org/global-tree-cover-loss-data-2024">Source: WRI</a></div>
+</div>
+<div class="photos">
+<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=700&q=80" alt="Forest">
+<img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=700&q=80" alt="Farm field">
+<img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=700&q=80" alt="Wind turbines">
+<img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=700&q=80" alt="Solar panels">
+</div></div></section>
+
+<section class="alt" id="quiz"><div class="wrap"><h2>Climate quiz</h2><p class="lead">Answer five questions and see your score instantly.</p><div class="tool" id="quizBox" style="margin-top:24px"></div></div></section>
+
+<section id="calculator"><div class="wrap"><h2>Action calculator</h2><p class="lead">Choose actions to estimate the emissions you could avoid. This is an educational estimate, not a personal carbon audit.</p>
+<div class="tool two" style="margin-top:24px"><div>
+<label>Plant-forward meals per week</label><select id="m"><option value="0">0</option><option value="1">1</option><option value="3">3</option><option value="5">5</option><option value="7">7</option></select>
+<label>Food-waste reduction</label><select id="w"><option value="0">No change</option><option value="1">Plan meals and use leftovers</option><option value="2">Also compost scraps</option></select>
+<label>Low-carbon travel swaps per week</label><select id="t"><option value="0">None</option><option value="1">1 trip</option><option value="3">3 trips</option><option value="5">5 trips</option></select>
+<label>Home energy action</label><select id="e"><option value="0">No change</option><option value="1">Cold-water washing</option><option value="2">Cold washing plus air-drying</option></select>
+<button class="btn primary" style="margin-top:18px" onclick="calc()">Calculate weekly impact</button></div>
+<div><div class="result" id="out">Select your actions and calculate your estimated weekly impact.</div></div></div></div></section>
+
+<section class="alt" id="game"><div class="wrap"><h2>Climate matching game</h2><p class="lead">Match each term with its definition.</p><div class="tool" style="margin-top:24px"><div class="match"><div id="L"></div><div id="R"></div></div><div class="result" id="mres">Match all four pairs.</div><button class="btn light" style="margin-top:14px" onclick="build()">Reset</button></div></div></section>
+
+<section id="myths"><div class="wrap"><h2>Myth or fact?</h2><p class="lead">Tap each card to reveal the answer.</p><div class="cards">
+<div class="flip" onclick="this.classList.toggle('on')"><div class="inner"><div class="face front"><h3>“Cold weather means global warming is not happening.”</h3></div><div class="face back"><h3>Myth</h3><p>Weather is short-term; climate is the long-term trend.</p></div></div></div>
+<div class="flip" onclick="this.classList.toggle('on')"><div class="inner"><div class="face front"><h3>“Food waste has little climate impact.”</h3></div><div class="face back"><h3>Myth</h3><p>WRI estimates it causes 8–10% of global emissions.</p><a class="source" target="_blank" rel="noopener" href="https://www.wri.org/news/statement-more-30-countries-commit-tackle-methane-organic-waste">Source: WRI</a></div></div></div>
+<div class="flip" onclick="this.classList.toggle('on')"><div class="inner"><div class="face front"><h3>“Forests influence climate by storing carbon.”</h3></div><div class="face back"><h3>Fact</h3><p>Forests remove CO₂, while deforestation releases stored carbon.</p><a class="source" target="_blank" rel="noopener" href="https://research.wri.org/id/node/89">Source: WRI</a></div></div></div>
+</div></div></section>
+
+<section class="alt" id="poll"><div class="wrap"><h2>Community poll</h2><p class="lead">Which action will you take this week? Your vote is stored only in this browser.</p><div class="tool" style="margin-top:24px"><div class="poll" id="poll"></div><div id="pollOut"></div></div></div></section>
+
+<section id="pledge"><div class="wrap"><div class="pledge">
+<div><h2>Make one climate pledge</h2><p>Choose one realistic action for this week. This demo stores pledges locally in your browser.</p>
+<form id="pf"><label>Your name</label><input id="pn" required maxlength="60" placeholder="Enter your first name"><label>My pledge</label><select id="pa"><option>Reduce food waste at home</option><option>Eat more plant-forward meals</option><option>Walk, cycle, or use public transport</option><option>Save energy at home</option><option>Learn and share one climate fact</option></select><button class="btn primary" style="margin-top:18px" type="submit">Add my pledge</button></form></div>
+<div><div class="count" id="pc">0</div><p><strong>people have pledged to take action.</strong></p><div id="pl"></div></div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">
+<h3 style="color:#fff;margin-top:0">Sources</h3>
+<p><a target="_blank" rel="noopener" href="https://www.fao.org/statistics/highlights-archive/highlights-detail/greenhouse-gas-emissions-from-agrifood-systems.-global--regional-and-country-trends--2001-2023/en">UN FAO — Agrifood emissions</a><br><a target="_blank" rel="noopener" href="https://www.wri.org/news/statement-more-30-countries-commit-tackle-methane-organic-waste">WRI — Food loss and waste</a><br><a target="_blank" rel="noopener" href="https://gfr.wri.org/global-tree-cover-loss-data-2024">WRI — Tree-cover loss</a></p>
+<div class="author"><p style="margin:0"><strong>Zachary</strong><br>Project Author</p>
+<p>“This campaign was built as a public-service project. Every statistic on the site links to its source at the UN Food and Agriculture Organization or the World Resources Institute — check them, question them, and take one action this week.”</p></div>
+</div></footer>
+
+<script>
+const quiz=[{q:"Approximately what share of human-caused emissions comes from agrifood systems, according to FAO?",o:["About one-third","About 5%","About 75%"],a:0,s:"https://www.fao.org/statistics/highlights-archive/highlights-detail/greenhouse-gas-emissions-from-agrifood-systems.-global--regional-and-country-trends--2001-2023/en"},{q:"Which organization estimates food loss and waste at 8–10% of annual global emissions?",o:["World Resources Institute","A social-media account","Nobody tracks this"],a:0,s:"https://www.wri.org/news/statement-more-30-countries-commit-tackle-methane-organic-waste"},{q:"What is the difference between weather and climate?",o:["They are identical","Weather is short-term; climate is long-term","Climate applies only to oceans"],a:1,s:"https://www.fao.org/newsroom/detail/Food-systems-account-for-more-than-one-third-of-global-greenhouse-gas-emissions/"},{q:"How much greenhouse gas did global tree-cover loss cause in 2024, per WRI?",o:["3.1 gigatonnes","0.1 gigatonnes","100 gigatonnes"],a:0,s:"https://gfr.wri.org/global-tree-cover-loss-data-2024"},{q:"Which action most directly reduces food-related emissions?",o:["Buying excess food","Planning meals and using leftovers","Leaving lights on"],a:1,s:"https://www.wri.org/research/reducing-food-loss-and-waste"}];
+let qi=0,sc=0;
+function rq(){const b=document.getElementById('quizBox');if(qi>=quiz.length){b.innerHTML=`<h3>Quiz complete</h3><div class="result">You scored ${sc}/${quiz.length}. Choose one action this week.</div><button class="btn light" onclick="qi=0;sc=0;rq()">Retake</button>`;return}const q=quiz[qi];b.innerHTML=`<p style="color:var(--muted);font-weight:700">Question ${qi+1} of ${quiz.length}</p><h3>${q.q}</h3><div id="opts"></div><div class="result" id="qe" style="display:none"></div>`;q.o.forEach((x,i)=>{const btn=document.createElement('button');btn.className='opt';btn.textContent=x;btn.onclick=()=>{document.querySelectorAll('.opt').forEach((o,j)=>{o.disabled=true;if(j===q.a)o.classList.add('correct')});if(i!==q.a)btn.classList.add('wrong');else sc++;const e=document.getElementById('qe');e.style.display='block';e.innerHTML=`<a target="_blank" rel="noopener" href="${q.s}">Check the source</a>`;setTimeout(()=>{qi++;rq()},1600)};document.getElementById('opts').append(btn)})}rq();
+function calc(){const k=(+m.value*.7)+(+w.value*.8)+(+t.value*.9)+(+e.value*.4);out.innerHTML=`Estimated avoidance: <strong>${k.toFixed(1)} kg CO₂e per week</strong>, or about <strong>${(k*52).toFixed(0)} kg CO₂e per year</strong>. Actual savings vary by location and habits.`}
+const pairs=[["Agrifood systems","Emissions from food production, land use, supply chains, and waste"],["Food loss and waste","Food produced for people but never eaten"],["Tree-cover loss","Removal or disturbance of forest cover"],["Methane","A potent greenhouse gas from livestock, rice, and landfill waste"]];
+let a=null,b=null,n=0;
+function build(){a=b=null;n=0;mres.textContent='Match all four pairs.';const ids=[0,1,2,3].sort(()=>Math.random()-.5);L.innerHTML='';R.innerHTML='';ids.forEach(i=>{const x=document.createElement('button');x.className='mbtn';x.textContent=pairs[i][0];x.dataset.i=i;x.onclick=()=>pick('L',x);L.append(x)});[...ids].reverse().forEach(i=>{const x=document.createElement('button');x.className='mbtn';x.textContent=pairs[i][1];x.dataset.i=i;x.onclick=()=>pick('R',x);R.append(x)})}
+function pick(s,x){if(x.classList.contains('matched'))return;if(s==='L')a=x;else b=x;document.querySelectorAll('.mbtn').forEach(y=>{if(!y.classList.contains('matched'))y.classList.remove('selected')});x.classList.add('selected');if(a&&b){if(a.dataset.i===b.dataset.i){a.classList.add('matched');b.classList.add('matched');a.classList.remove('selected');b.classList.remove('selected');n++;mres.textContent=n===4?'All pairs matched—well done!':`Matched ${n} of 4.`}else{a.classList.add('wrong');b.classList.add('wrong');setTimeout(()=>{a.classList.remove('wrong','selected');b.classList.remove('wrong','selected')},600)}a=b=null}}
+build();
+const choices=["Reduce food waste","Eat more plant-forward meals","Use lower-carbon transport","Save energy at home"];
+function rp(){const v=JSON.parse(localStorage.getItem('gci_poll')||'{}');const tot=Object.values(v).reduce((x,y)=>x+y,0);poll.innerHTML='';choices.forEach((c,i)=>{const btn=document.createElement('button');btn.textContent=c;btn.onclick=()=>{const z=JSON.parse(localStorage.getItem('gci_poll')||'{}');z[i]=(z[i]||0)+1;localStorage.setItem('gci_poll',JSON.stringify(z));rp()};poll.append(btn)});pollOut.innerHTML=tot?`<h3>Results</h3>`+choices.map((c,i)=>{const p=tot?Math.round((v[i]||0)/tot*100):0;return `<div style="margin-bottom:12px"><div style="display:flex;justify-content:space-between;font-weight:700"><span>${c}</span><span>${p}%</span></div><div style="height:9px;background:#e6efec;border-radius:99px"><div style="height:100%;width:${p}%;background:linear-gradient(90deg,#16a34a,#0f766e);border-radius:99px"></div></div></div>`}).join(''):''}
+rp();
+function gp(){return JSON.parse(localStorage.getItem('gci_pledges')||'[]')}
+function rpl(){const p=gp();pc.textContent=p.length;pl.innerHTML=p.length?'<p style="color:#d7e7e2;font-size:14px">Recent pledges:</p>'+p.slice(-8).reverse().map(x=>`<div style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:10px 14px;border-radius:12px;margin-bottom:8px"><strong>${x.n}</strong> pledged to ${x.a}.</div>`).join(''):'<p style="color:#a8c4bd;font-size:14px">Be the first to pledge.</p>'}
+pf.onsubmit=e=>{e.preventDefault();const p=gp();p.push({n:pn.value.trim(),a:pa.value});localStorage.setItem('gci_pledges',JSON.stringify(p));pn.value='';rpl()};rpl();
+</script>
+</body>
+</html>
